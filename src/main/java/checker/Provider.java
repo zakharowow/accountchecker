@@ -10,7 +10,7 @@ import java.util.Map;
 public class Provider {
     @NonNull
     @Getter
-    String name, url, login, password, logAttribute, passAttribute, balancePath;
+    String name, url, login, password, logAttribute, passAttribute, balancePath, tariffPath;
     @Getter
     double balanceThreshold;
 
@@ -22,6 +22,7 @@ public class Provider {
         this.logAttribute = (String) providerData.get("logAttribute");
         this.passAttribute = (String) providerData.get("passAttribute");
         this.balancePath = (String) providerData.get("balancePath");
+        this.tariffPath = (String) providerData.get("tariffPath");
         this.balanceThreshold = (int) providerData.get("balanceThreshold");
     }
 }
