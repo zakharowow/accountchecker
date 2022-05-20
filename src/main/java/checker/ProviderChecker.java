@@ -18,7 +18,7 @@ public class ProviderChecker {
         try {
             balanceData = BalancePuller.getAccountBalance(provider);
             if (balanceData[1] < provider.getBalanceThreshold()) {
-                String message = String.format("Оператор %s. На счёте %s рублей. Нужно доплатить %s рублей.", provider.getName(), balanceData[1], new DecimalFormat("##.##").format(Math.abs(balanceData[2])));
+                String message = String.format("Оператор %s. Договор %s. На счёте %s рублей. Нужно доплатить %s рублей.", provider.getName(), provider.getLogin(), balanceData[1], new DecimalFormat("##.##").format(Math.abs(balanceData[2])));
                 Reporter.sendReport(provider, message);
             }
         } catch (Exception e) {
