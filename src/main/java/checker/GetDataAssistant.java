@@ -10,7 +10,7 @@ import static checker.ExceptionAssistant.writeExceptionInLog;
 
 public class GetDataAssistant {
 
-    public static String getData(String dataType) {
+    public static String getJson(String dataType) {
         String fileContent = null;
         try (InputStream is = GetDataAssistant.class.getClassLoader().getResourceAsStream(dataType)) {
             BufferedInputStream bis = new BufferedInputStream(Objects.requireNonNull(is));
@@ -25,5 +25,9 @@ public class GetDataAssistant {
             writeExceptionInLog(e);
         }
         return new Gson().fromJson(fileContent, JsonObject.class).toString();
+    }
+
+    public static String getDriverPath() {
+        return new File("chromedriver.exe").exists() ? "chromedriver.exe" : "src/main/resources/chromedriver.exe";
     }
 }

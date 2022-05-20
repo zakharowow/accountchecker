@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
-import static checker.GetDataAssistant.getData;
+import static checker.GetDataAssistant.getJson;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ChatBot {
@@ -15,7 +15,7 @@ public class ChatBot {
     String token, chatId;
 
     ChatBot() {
-        JsonPath botData = JsonPath.from(getData("botdata"));
+        JsonPath botData = JsonPath.from(getJson("botdata"));
         this.token = botData.getString("botToken");
         this.chatId = botData.getString("chatId");
     }

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static checker.ExceptionAssistant.writeExceptionInLog;
-import static checker.GetDataAssistant.getData;
+import static checker.GetDataAssistant.getJson;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PUBLIC)
 public class ProviderFactory {
@@ -18,7 +18,7 @@ public class ProviderFactory {
 
     public static void generateProviderList() {
         try {
-            List<Map<String, Object>> dataList = JsonPath.from(getData("providerdata")).getList("providers");
+            List<Map<String, Object>> dataList = JsonPath.from(getJson("providerdata")).getList("providers");
             for (Map<String, Object> providerData : dataList) {
                 providerList.add(new Provider(providerData));
             }
