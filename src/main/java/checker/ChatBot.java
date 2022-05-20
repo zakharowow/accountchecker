@@ -15,7 +15,7 @@ public class ChatBot {
     String token, chatId;
 
     ChatBot() {
-        JsonPath botData = JsonPath.from(getData("botData"));
+        JsonPath botData = JsonPath.from(getData("botdata"));
         this.token = botData.getString("botToken");
         this.chatId = botData.getString("chatId");
     }
